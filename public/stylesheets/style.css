@@ -1,0 +1,31 @@
+body {
+	overflow:hidden;
+	padding: 0;
+	margin: 0;
+	padding-top:50px;
+}
+.maincontainer {
+	padding-left:0px;
+	padding-right:0px;
+}
+.comment > small {
+	color:#aaa;
+}
+.feedbackItem {
+	margin-top:20px;
+	font-size:16px;
+}
+.feedbackItem > small {
+	color:#aaa;
+}
+.feedbackItem > b {
+	margin-bottom:5px;
+}
+.banner-img {
+	margin-top:-10px;
+	max-width:170px;
+}
+html, body, .maincontainer, #map {
+	height:100%;
+	width:100%;
+}

@@ -1,0 +1,4 @@
+mixin comment(comment)
+  p.comment(data-commentid=comment._id) #{comment.text}
+    br
+    small Lisätty: #{new Date(comment.added).toLocaleString()}

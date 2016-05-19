@@ -1,0 +1,15 @@
+include commentMixin
+p.feedbackItem
+  b Palaute, kehitysidea tai muu:
+  br
+  | #{marker.text}
+  br
+  small
+    | Lisännyt: #{marker.author} #{new Date(marker.created).toLocaleString()}
+hr
+#commentContainer
+  each comment in marker.comments
+    +comment(comment)
+textarea#commentBody.form-control(name='text')
+br
+button#addCommentBtn.btn.btn-default(data-marker-id=marker._id) Kommentoi
