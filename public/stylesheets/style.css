@@ -2,11 +2,13 @@ body {
 	overflow:hidden;
 	padding: 0;
 	margin: 0;
-	padding-top:50px;
 }
 .maincontainer {
 	padding-left:0px;
 	padding-right:0px;
+}
+.comment {
+  word-break: break-all;
 }
 .comment > small {
 	color:#aaa;
@@ -24,6 +26,12 @@ body {
 .banner-img {
 	margin-top:-10px;
 	max-width:170px;
+}
+.modal {
+  z-index: 2001;
+}
+.modal-backdrop {
+  z-index: 2000;
 }
 html, body, .maincontainer, #map {
 	height:100%;
