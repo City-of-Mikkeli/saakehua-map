@@ -1,7 +1,5 @@
 
 var express = require('express');
-var routes = require('./routes');
-var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
 var database = require('./config/database.js');
@@ -48,20 +46,21 @@ datastore.once('open', function() {
 
   var app = express();
 
+  var http = require('http').Server(app);
+  var io = require('socket.io')(http);
+
   app.set('port', process.env.PORT || 3000);
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'jade');
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded());
+  
+  require('./routes/routes')(app);
+  require('./routes/socket')(io);
 
-  app.get(SERVER_ROOT + '/', routes.index);
-  app.get(SERVER_ROOT + '/feedback', routes.getFeedback);
-
-  app.post(SERVER_ROOT + '/feedback', routes.addFeedback);
-  app.post(SERVER_ROOT + '/comment/:id', routes.addComment);
-
-  http.createServer(app).listen(app.get('port'), function() {
-    console.log('Express server listening on port ' + app.get('port'));
+  http.listen(3000, function(){
+    console.log('listening on *:3000');
   });
+
 });
